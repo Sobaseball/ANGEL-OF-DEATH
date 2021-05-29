@@ -19,6 +19,7 @@ Instagramのフォロー等もこちらから行えます
 服の購入やその他の情報取得
 
 ## 設計書
+https://docs.google.com/spreadsheets/d/1_ArX0wEd62Y72YxZZbuH1hGM-jw7exjA/edit#gid=549108681
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1H1YlAmlkLVuiVIjRkLtkcQdqIHgrRR4KCpYCvuXnHIE/edit#gid=0
@@ -27,4 +28,5 @@ https://docs.google.com/spreadsheets/d/1H1YlAmlkLVuiVIjRkLtkcQdqIHgrRR4KCpYCvuXn
 - 言語：HTML,CSS,JavaScript,
 - フレームワーク：Ruby on Rails
 
+https://docs.google.com/spreadsheets/d/1_ArX0wEd62Y72YxZZbuH1hGM-jw7exjA/edit#gid=549108681
 ## 使用素材
