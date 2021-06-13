@@ -1,24 +1,38 @@
-# README
+# ANGEL OF DEATH
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+ANGEL OF DEATH　の公式通販サイトです
+商品の購入はこちらからお願いします。
+ANGEL OF DEATH　は海外のストリート系のファッションを参考にしており
+けれど他とは違う独特な手書きのデザインで、斬新かつ、新しいものばかりです
+そのデザインは日々進化を続けています。その進化をお見逃しなく...
 
-Things you may want to cover:
 
-* Ruby version
+### サイトテーマ
+アパレルの通販サイト
 
-* System dependencies
+### テーマを選んだ理由
+友人が自身で服の製作をしていて、SNSなどでやり取りを完了させてからの販売方法や、売り出し方が非効率的だあったりなど
+デザインは他にはない、ほとんど手書きで個性的で人気が出るような商品だろうなと思い購入した別の友人に聞いたところ
+ほとんどの人が納得のいくものだったらしくて、不満点がやり取りから発送して到着までの過程がすごく手間取っているケースが
+やはり多かったみたいなので、その改善のための手助けとECサイトを作れれば商品の情報をもっと簡単に知れたり
+より多くの人の目に止まるのではないかや、今までやり取りや商品の説明をしてから選んでもらうケースが多く
+時間や手間が多くかかっていたため、新しいデザインの製作やそのほかのことに時間が割けないケースが少なからずあったので
+時間を作るという意味でも少しでも手助けになればと思い製作の決定をしました
+### ターゲットユーザ
+若者でストリート系のファッションに興味のある方
 
-* Configuration
+### 主な利用シーン
+服の購入やその他の情報取得
 
-* Database creation
+## 設計書
+https://docs.google.com/spreadsheets/d/1_ArX0wEd62Y72YxZZbuH1hGM-jw7exjA/edit#gid=549108681
 
-* Database initialization
+### 機能一覧
+https://docs.google.com/spreadsheets/d/1H1YlAmlkLVuiVIjRkLtkcQdqIHgrRR4KCpYCvuXnHIE/edit#gid=0
 
-* How to run the test suite
+## 開発環境
+- 言語：HTML,CSS,JavaScript,
+- フレームワーク：Ruby on Rails
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材

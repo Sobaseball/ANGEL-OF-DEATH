@@ -47,6 +47,7 @@ class Customers::OrdersController < ApplicationController
       @order.shipping_address = params[:order][:shipping_address]
       @order.superscription = params[:order][:superscription]
     end
+    InquiryMailer.order_mail(current_customer.email).deliver_now
   end
 
     # if params[:oder][:addrress_option] == "0"
