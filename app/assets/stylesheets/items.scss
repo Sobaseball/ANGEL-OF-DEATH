@@ -1,0 +1,23 @@
+// Place all the styles related to the items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+.pagination > li > a {
+  border: none;
+  color: #999;
+}
+.pagination > li > a:hover {
+  color: turquoise;
+  background-color: white;
+}
+.pagination > .active > a {
+  color: turquoise;
+  background-color: white;
+}
+.pagination > .active > a:hover {
+  background-color: white;
+  color: turquoise;
+}

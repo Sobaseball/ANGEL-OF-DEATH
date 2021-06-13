@@ -1,0 +1,28 @@
+<h2>商品一覧</h2>
+<%= link_to "新規商品登録", new_admin_item_path%>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>商品ID</th>
+      <th>商品名</th>
+      <th>値段</th>
+      <th>ジャンル</th>
+      <th>ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= image_tag(Refile.attachment_url(Image.where(item_id: item.id)[item.cover_id - 1], :images), size: "78x78") %></td>
+        <td><%= link_to item.name,admin_item_path(item) %></td>
+        <td><%= item.price.to_s(:delimited) %></td>
+        <td><%= item.genre.name %></td>
+        <% if item.is_active == nil %>
+        <td>販売中</td>
+        <% else %>
+        <td>販売停止中</td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

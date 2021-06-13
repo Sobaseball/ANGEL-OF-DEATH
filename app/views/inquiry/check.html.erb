@@ -1,0 +1,23 @@
+<table>
+  <tbody>
+    <tr>
+      <td class="text-center" style="width: 30%;">お名前</td>
+      <td><%= @inquiries.name %></td>
+    </tr>
+    <tr>
+      <td class="text-center">メッセージ</td>
+      <td style="white-space: pre-wrap;"><%= @inquiries.message %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= form_for @inquiries, url: done_path, method: :post do |f| %>
+  <%= f.hidden_field :name %>
+  <%= f.hidden_field :message %>
+  <div><%= f.submit '送信' %></div>
+<% end %>
+<%= form_for @inquiries, url: back_path do |f| %>
+  <%= f.hidden_field :name %>
+  <%= f.hidden_field :message %>
+  <div><%= f.submit '入力画面に戻る' %></div>
+<% end %>

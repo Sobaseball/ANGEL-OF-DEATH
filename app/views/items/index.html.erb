@@ -1,0 +1,29 @@
+<h1>商品一覧</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+    <tr>
+      <td>
+        <%= link_to item_path(item) do %>
+        <%= image_tag(Refile.attachment_url(Image.where(item_id: item.id)[item.cover_id - 1], :images), size: "78x78") %>
+        <% end %>
+      </td>
+      <td><%= link_to item.name,item_path(item) %></td>
+      <td><%= item.price.to_s(:delimited) %></td>
+      <td><%= item.is_active %></td>
+    </tr>
+    <% end %>
+  </tbody>
+  </table>
+
+  <%= paginate @items %>
+

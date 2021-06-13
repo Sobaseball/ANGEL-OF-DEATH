@@ -1,0 +1,30 @@
+<h1>注文履歴一覧</h1>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th>注文日</th>
+      <th>配送先</th>
+      <th>注文商品</th>
+      <th>支払い金額</th>
+      <th>ステータス</th>
+      <th>注文詳細</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.created_at %></td>
+        <td><%= order.shipping_postalcode %><%= order.shipping_address %><%= order.superscription %></td>
+        <td>
+            <% order.order_items.each do |order_item| %>
+             <%= order_item.item.name %>
+            <% end %>
+        </td>
+        <td><%= order.subtotal %></td>
+        <td><%= order.is_order %></td>
+        <td><%= link_to "表示する", customers_order_path(order) %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

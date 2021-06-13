@@ -1,0 +1,34 @@
+<h2>商品詳細</h2>
+
+<div id="wrap">
+  <ul id="slider">
+    <% Image.where(item_id: @item.id).each do |item| %>
+    <%#= attachment_image_tag(image, Refile.attachment_url(Image.find(1), :images), :fill, 100, 100) %>
+    <li class="thumbnail-item"><%= image_tag(Refile.attachment_url(item, :images), size: "260x260") %></li>
+    <% end %>
+
+  </ul>
+  <ul id="thumbnail-list">
+  <% Image.where(item_id: @item.id).each do |item| %>
+    <li class="thumbnail-item"><%= image_tag(Refile.attachment_url(item, :images), size: "78x78") %><%#= attachment_image_tag(item, :image, :fill, 100, 100) %></li>
+  <% end %>
+  </ul>
+ </div>
+		<table class='table'>
+
+
+      <tr>
+        <td>商品名</td>
+        <td><%= @item.name %></td>
+      </tr>
+      <tr>
+        <td>商品説明</td>
+        <td><%= @item.introduction %></td>
+      </tr>
+    </table>
+    <%= form_with(model: @cart_item,url: customers_cart_items_path) do |f| %>
+
+    <%= f.hidden_field :item_id, :value => @item.id %>
+    <%= f.select :amount, ['1', '2', '3','4','5'], {include_blank: '選択ボックス'},class: 'sample' %>
+    <%= f.submit "カートに入れる" %>
+    <% end %>

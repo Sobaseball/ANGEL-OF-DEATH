@@ -1,0 +1,34 @@
+<%= form_with model:@item ,url: admin_item_path, method: :patch do |f| %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :introduction %><br>
+    <%= f.text_field :introduction %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :genre %><br>
+    <%= f.collection_select :genre_id , Genre.all,:id,:name ,include_blank: "選択してください" %>
+  </div>
+  <div class="field">
+    <%= f.label :images_images %><br>
+    <%= f.attachment_field :images_images, multiple: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label "cover" %>
+    <%= f.number_field :cover_id %>
+  </div>
+
+  <%= f.label :販売ステータス %>
+  <%= f.radio_button :is_active, 0 %> 発売予定
+  <%= f.radio_button :is_active, 1 %> 再販未定
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

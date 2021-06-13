@@ -1,0 +1,25 @@
+<h1>質問履歴一覧</h1>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th>質問日時</th>
+      <th>名前</th>
+      <th>質問内容</th>
+      <th></th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <% @inquiries.each do |inquiry| %>
+    <tr>
+      <td><%= inquiry.created_at %></td>
+      <td><%= inquiry.name %></td>
+      <td class="text-center">メッセージ</td>
+      <td style="white-space: pre-wrap;"><%= inquiry.message %></td>
+      <td><%= link_to "表示する", inquiry_path(inquiry) %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>

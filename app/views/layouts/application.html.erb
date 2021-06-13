@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>ANGEL_OF_DEATH</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="d-flex flex-column vh-100">
+    <header class="shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <%= link_to "ANGEL_OF_DEATH", root_path %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+
+
+
+    <% if customer_signed_in? %>
+
+    <%= link_to "質問する", new_inquiry_path %>
+    　<li>
+      <i class="fas fa-sign-out-alt text-light"></i>
+        <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+      </li>
+
+      <li>
+      <i class="fas fa-child text-light"></i>
+        <%= link_to "マイページ", customers_my_page_path %>
+      </li>
+
+      <li>
+      <i class="fas fa-tshirt text-light"></i>
+        <%= link_to "商品一覧", items_path %>
+      </li>
+      <li>
+      <i class="fas fa-shopping-cart text-light"></i>
+        <%= link_to "カート", customers_cart_items_path %>
+      </li>
+      <li>
+      <i class="fas fa-history text-light"></i>
+        <%= link_to "注文履歴", customers_orders_path %>
+      </li>
+
+　　<% elsif admin_signed_in? %>
+
+　　<%= link_to "質問一覧", ansers_path %>
+
+      <li>
+      <i class="fas fa-tshirt text-light"></i>
+        <%= link_to "商品一覧", admin_items_path %>
+      </li>
+      <li>
+      <i class="fab fa-ember text-light"></i>
+        <%= link_to "会員一覧", admin_customers_path %>
+      </li>
+      <li>
+      <i class="fas fa-sign-out-alt text-light"></i>
+        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+      </li>
+      <li>
+      <i class="fas fa-genderless text-light"></i>
+        <%= link_to "ジャンル一覧", admin_genres_path %>
+      </li>
+      <li>
+       <i class="fas fa-history text-light"></i>
+        <%= link_to "注文履歴一覧", admin_path %>
+      </li>
+
+
+
+    <% else %>
+      <li>
+      <i class="fas fa-ban text-light"></i>
+        <%= link_to "about", home_about_path %>
+      </li>
+      <li>
+      <i class="fas fa-birthday-cake text-light"></i>
+        <%= link_to "商品一覧", items_path %>
+      </li>
+      <li>
+      <i class="fas fa-user-plus text-light"></i>
+        <%= link_to "新規登録", new_customer_registration_path %>
+      </li>
+      <li>
+      <i class="fas fa-sign-in-alt text-light"></i>
+        <%= link_to "ログイン", new_customer_session_path %>
+      </li>
+    <% end %>
+    </header>
+
+  <body>
+    <%= yield %>
+
+  </body>
+  <footer>フッター</footer>
+</html>

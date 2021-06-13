@@ -1,0 +1,62 @@
+<h1>注文履歴詳細</h1>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th>注文日</th>
+      <th>配送先</th>
+      <th>支払い方法</th>
+      <th>ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.created_at %></td>
+        <td><%= order.shipping_postalcode %><%= order.shipping_address %><%= order.superscription %></td>
+        <td><%= order.payment %></td>
+        <td><%= order.is_order %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th>商品合計</th>
+      <th>配送料</th>
+      <th>請求金額</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><%= @order.subtotal - @order.freight %></td>
+        <td><%= @order.freight %></td>
+        <td><%= @order.subtotal %></td>
+      </tr>
+  </tbody>
+</table>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th>商品</th>
+      <th>単価</th>
+      <th>個数</th>
+      <th>小計</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order.order_items.each do |order_item| %>
+      <tr>
+        <td>
+             <%= order_item.item.name %>
+        </td>
+        <td><%= order_item.price_at %></td>
+        <td><%= order_item.amount %></td>
+        <td><%= order_item.amount * order_item.price_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,57 @@
+<h1>注文情報確認</h1>
+<table class='table'>
+  <thead>
+    <tr>
+      <th></th>
+      <th>商品名</th>
+      <th>単価</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sum = 0 %>
+    <% @cart_items.each do |cart_item| %>
+      <tr>
+        <td>
+          <% item = cart_item.item %>
+          <%= image_tag(Refile.attachment_url(Image.where(item_id: item.id)[item.cover_id - 1], :images), size: "78x78") %>
+        </td>
+        <td><%= cart_item.item.name %></td>
+        <td><%= cart_item.item.price.to_s(:delimited) %></td>
+        <td><%= cart_item.amount %></td>
+        <td>
+          <% @total = cart_item.item.price * cart_item.amount %>
+          <%= @total %>
+          <% @sum += @total %>
+        </td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= form_with(model: @order,url: customers_orders_path,method: :post, local: true) do |f| %>
+送料<%= @order.freight %>円
+<%= f.hidden_field :freight, :value => @order.freight %>
+合計金額<%= @sum %>円
+請求金額<%= @order.freight.to_i + @sum.to_i %>円</br>
+支払い方法</br><%= @order.payment %></br>
+
+お届け先住所</br>
+<%= f.hidden_field :shipping_postalcode, :value => @order.shipping_postalcode %>
+<%= f.hidden_field :shipping_address, :value => @order.shipping_address %>
+<%= f.hidden_field :superscription, :value => @order.superscription %>
+<%= f.hidden_field :subtotal, :value => @order.freight.to_i + @sum.to_i %>
+<%= f.hidden_field :superscription, :value => @order.superscription %>
+<%= f.hidden_field :payment, :value => @order.payment %>
+<%= f.hidden_field :is_oder, :value => "入金待ち" %>
+<%= @order.shipping_postalcode %><%= @order.shipping_address %></br>
+<%= @order.superscription %>
+
+<%= f.submit "注文を確定する" %>
+<% end %>
+
+
+

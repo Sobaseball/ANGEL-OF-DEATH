@@ -1,0 +1,36 @@
+<h1>質問内容詳細・返信</h1>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>質問日時</th>
+      <th>名前</th>
+      <th>質問内容</th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <tr>
+      <td><%= @inquiry.customer_id %></td>
+      <td><%= @inquiry.created_at %></td>
+      <td><%= @inquiry.name %></td>
+      <td style="white-space: pre-wrap;"><%= @inquiry.message %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= form_with model:@anser ,url: ansers_path, method: :post do |f| %>
+
+<div class="form-group">
+    <%= f.label :message, 'メッセージ*' %>
+    <%= f.text_area :message, size: '10x10', class: 'form-control' %>
+    <%= hidden_field_tag :email, @inquiry.customer.email %>
+  </div>
+
+<div class="actions">
+    <%= f.submit "返信" %>
+</div>
+
+<% end %>

@@ -1,0 +1,44 @@
+<%= form_with model:@customer ,url: admin_customer_path, method: :patch do |f| %>
+  <div class="field">
+    <div>会員id</div>
+    <%= @customer.id %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name, "氏名" %>
+    <%= f.text_field :last_name %>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name_kana, "カナ" %>
+    <%= f.text_field :last_name_kana %>
+    <%= f.text_field :first_name_kana %>
+  </div>
+
+  <div class="field">
+    <%= f.label :postal_code %>
+    <%= f.text_field :postal_code %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :telephone_number %>
+    <%= f.text_field :telephone_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <%= f.label :退会ステータス %>
+  <%= f.radio_button :is_active, 0 %> 有効
+  <%= f.radio_button :is_active, 1 %> 退会
+  <div class="actions">
+    <%= f.submit "変更を保存" %>
+  </div>
+<% end %>
