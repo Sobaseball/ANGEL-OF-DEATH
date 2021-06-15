@@ -36,5 +36,3 @@ https://docs.google.com/spreadsheets/d/1H1YlAmlkLVuiVIjRkLtkcQdqIHgrRR4KCpYCvuXn
 - フレームワーク：Ruby on Rails
 
 ## 使用素材
-
-github test
