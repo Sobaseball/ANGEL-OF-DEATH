@@ -1,10 +1,8 @@
 <h1>注文情報入力</h1>
 
-<%= form_with(model: @order,url: customers_orders_check_path,method: :get, local: true) do |f| %>
+<%= form_with(model: @order,url: customers_orders_check_path, :method => :get, local: true) do |f| %>
 
 <h2>支払い方法</h2>
-<%= f.radio_button :payment, "クレジットカード" %>
-<%= f.label :payment, "クレジットカード" %>
 <%= f.radio_button :payment, "銀行振り込み" %>
 <%= f.label :payment, "銀行振り込み" %>
 

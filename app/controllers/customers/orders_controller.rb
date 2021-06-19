@@ -15,12 +15,13 @@ class Customers::OrdersController < ApplicationController
   end
 
   def create
+
     @order = current_customer.orders.new(order_params)
     # binding.pry
     @order.save
     @cart_items = current_customer.cart_items
     @cart_items.each do |cart_item|
-			@order_item = OrderItem.new(order_id: @order.id,item_id: cart_item.item_id,amount: cart_item.amount,price_at: cart_item.item.price,is_production: "製作不可")
+			@order_item = OrderItem.new(order_id: @order.id,item_id: cart_item.item_id, size: cart_item.size,amount: cart_item.amount,price_at: cart_item.item.price,is_production: "製作不可")
 			@order_item.save
 		end
     current_customer.cart_items.destroy_all
@@ -29,7 +30,7 @@ class Customers::OrdersController < ApplicationController
 
   def check
     @cart_items = current_customer.cart_items
-    @order = Order.new(order_params)
+    @order = Order.new(:payment => Order.payments[order_params[:payment]])
     @order.freight = 800
     if params[:order][:address_option] == "0"
       @order.shipping_postalcode = current_customer.postal_code

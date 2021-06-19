@@ -14,6 +14,6 @@ class Admin::OrderItemsController < ApplicationController
 
 
   def order_item_params
-    params.require(:order_item).permit(:order_id, :item_id, :amount, :is_production, :price_at)
+    params.require(:order_item).permit(:order_id, :item_id, :amount, :size, :is_production, :price_at)
   end
 end

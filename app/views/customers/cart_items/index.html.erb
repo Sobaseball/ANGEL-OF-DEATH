@@ -8,7 +8,7 @@
       <th></th>
       <th>商品名</th>
       <th>単価</th>
-      <th>数量</th>
+      <th>数量・サイズ</th>
       <th>小計</th>
       <th></th>
     </tr>
@@ -26,6 +26,7 @@
         <td>
         <%= form_with(model: cart_item,url: customers_cart_item_path(cart_item)) do |f| %>
         <%= f.select :amount, ['1', '2', '3','4','5'], class: 'sample' %>
+        <%= f.select :size, ['S', 'M', 'L','XL','3L'], class: 'sample' %>
         <%= f.submit "変更" %>
         <% end %>
         </td>
