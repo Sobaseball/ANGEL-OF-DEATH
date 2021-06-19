@@ -5,7 +5,8 @@ class InquiryMailer < ApplicationMailer
     @inquiry = inquiry
     mail(
       from: 'system@example.com',
-      to:   'sobaseball_0416@yahoo.co.jp',
+      # to:   'sobaseball_0416@yahoo.co.jp',
+      to: "souichiro-1996-0210@ezweb.ne.jp",
       subject: 'お問い合わせ通知'
     )
   end
