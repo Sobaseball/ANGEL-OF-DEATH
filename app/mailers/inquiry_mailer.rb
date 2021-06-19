@@ -5,7 +5,7 @@ class InquiryMailer < ApplicationMailer
     @inquiry = inquiry
     mail(
       from: 'system@example.com',
-      to:   'sobaseball_0416@yahoo.co.jp',
+      to:   'so.baseball1@gmail.com',
       subject: 'お問い合わせ通知'
     )
   end
@@ -13,7 +13,7 @@ class InquiryMailer < ApplicationMailer
   def anser_mail(anser, email)
     @anser = anser
     mail(
-      from:    'sobaseball_0416@yahoo.co.jp',
+      from:    'so.baseball1@gmail.com',
       to:      email,
       subject:'お問い合わせ通知'
     )
