@@ -58,3 +58,4 @@ $(document).on('turbolinks:load', function(){
     $(thumbnailItem+'[data-index="'+nextSlide+'"]').addClass("thumbnail-current");
   });
 });
+
